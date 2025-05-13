@@ -1,0 +1,93 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background: #f5f5f5;
+}
+
+header, footer {
+  text-align: center;
+  padding: 1rem;
+  background: #222;
+  color: white;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.train-section .train-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.normal {
+  background-color: #e0e0e0;
+  color: #333;
+  padding: 2rem 1rem;
+}
+
+.brainrot {
+  background-color: #ffb3c1;
+  color: #fff;
+  padding: 2rem 1rem;
+}
+
+.train-card {
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  text-align: center;
+}
+
+.train-card {
+  font-size: 1.2rem;
+}
+.train-card.traxx {
+  background-color: #004080;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.train-card.traxx:hover {
+  transform: scale(1.05);
+  background-color: rgb(0, 51.25, 102.5);
+}
+.train-card.taurus {
+  background-color: #c00000;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.train-card.taurus:hover {
+  transform: scale(1.05);
+  background-color: rgb(166.5, 0, 0);
+}
+.train-card.thomas {
+  background-color: #007bff;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.train-card.thomas:hover {
+  transform: scale(1.05);
+  background-color: rgb(0, 110.7, 229.5);
+}
+.train-card.gustav {
+  background-color: #4b0082;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.train-card.gustav:hover {
+  transform: scale(1.05);
+  background-color: rgb(60.2884615385, 0, 104.5);
+}
+
+/*# sourceMappingURL=main.css.map */

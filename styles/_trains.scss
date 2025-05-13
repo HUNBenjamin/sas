@@ -1,0 +1,19 @@
+// Kiterjesztés alap kártyára
+%base-card {
+    border: 2px solid rgba(0,0,0,0.1);
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .train-card {
+    @extend %base-card;
+    font-size: 1.2rem;
+  
+    // Dinamikus színezés minden vonat típusra
+    @each $name, $color in $train-colors {
+      &.#{$name} {
+        @include card-style($color);
+      }
+    }
+  }
+  

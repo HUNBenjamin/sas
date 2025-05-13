@@ -1,0 +1,19 @@
+@mixin card-style($bg-color) {
+    background-color: $bg-color;
+    padding: $card-padding;
+    border-radius: $border-radius;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    
+    &:hover {
+      transform: scale(1.05);
+      background-color: darken($bg-color, map-get($colors, hover-darken));
+    }
+  }
+  
+  @mixin section-style($bg, $text) {
+    background-color: $bg;
+    color: $text;
+    padding: 2rem 1rem;
+  }
+  

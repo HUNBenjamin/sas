@@ -1,0 +1,22 @@
+// Alapszínek
+$colors: (
+  normal-bg: #e0e0e0,
+  brainrot-bg: #ffb3c1,
+  normal-text: #333,
+  brainrot-text: #fff,
+  card-bg: #fff,
+  hover-darken: 5%
+);
+
+// Vonattípus színek
+$train-colors: (
+  traxx: #004080,
+  taurus: #c00000,
+  thomas: #007bff,
+  gustav: #4b0082
+);
+
+// Méretek
+$card-padding: 1rem;
+$border-radius: 0.5rem;
+$gap: 2rem;
