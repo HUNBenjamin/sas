@@ -1,119 +1,183 @@
-@import 'variables';
-@import 'mixins';
-@import 'layout';
-@import 'trains';
+// Alapbeállítások
+$font-family: 'Arial', sans-serif;
+$primary-color: #3d007d;
+$secondary-color: #ffffff;
+$accent-color: #f5a623;
+$background-color: #f7f9fc;
+$link-color: #007bff;
+$link-hover-color: darken($link-color, 10%);
+$border-radius: 8px;
+$shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
-// Alap színek és elrendezés beállítások
-body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f9;
-  color: #333;
+// Mixinek
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-header {
-  text-align: center;
-  background-color: #222;
-  color: white;
-  padding: 2rem;
-}
-
-header h1 {
-  font-size: 3rem;
-}
-
-header p {
-  font-size: 1.2rem;
-  margin-top: 1rem;
-  font-style: italic;
-}
-
-footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: #222;
-  color: white;
-}
-
-.train-section {
-  margin: 2rem;
-  padding: 1rem;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.train-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-}
-
-.train-card {
-  background-color: #fff;
-  border-radius: 8px;
-  padding: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+@mixin button-style {
+  padding: 0.5rem 1rem;
+  border-radius: $border-radius;
+  font-size: 1rem;
+  font-weight: bold;
+  color: $secondary-color;
+  background: $primary-color;
+  border: none;
+  cursor: pointer;
 
   &:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    background: darken($primary-color, 10%);
+  }
+}
+
+// Globális reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(to right, #f7f9fc, #eef2f7);
+  font-family: $font-family;
+  color: $primary-color;
+  background: $background-color;
+  line-height: 1.6;
+  padding: 1rem;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+
+  &:hover {
+    color: $link-hover-color;
+  }
+}
+
+h1, h2, h3 {
+  color: $secondary-color;
+}
+
+// Header
+header {
+  background: $primary-color;
+  color: $secondary-color;
+  padding: 1.5rem;
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
   }
 
-  img {
-    max-width: 100%;
-    border-radius: 8px;
-  }
-
-  h3 {
-    font-size: 1.5rem;
+  nav {
     margin-top: 1rem;
-    color: #222;
+
+    a {
+      margin: 0 0.5rem;
+      padding: 0.5rem 1rem;
+      background: $secondary-color;
+      color: $primary-color;
+      border-radius: $border-radius;
+      text-transform: uppercase;
+
+      &.active {
+        background: $accent-color;
+        color: $secondary-color;
+      }
+
+      &:hover {
+        background: lighten($secondary-color, 10%);
+      }
+    }
   }
+}
+
+// Fő tartalom
+main {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: $secondary-color;
+  border-radius: $border-radius;
+  box-shadow: $shadow;
+
+  section {
+    margin-bottom: 2rem;
+
+    h2, h3 {
+      margin-bottom: 1rem;
+      border-bottom: 2px solid $accent-color;
+      padding-bottom: 0.5rem;
+    }
+
+    ul {
+      margin: 1rem 0;
+      padding-left: 1.5rem;
+      list-style-type: disc;
+
+      li {
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    a {
+      @include button-style;
+      display: inline-block;
+      margin: 0.5rem 0;
+    }
+  }
+}
+
+// Titkos dolgok
+.train-secrets ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+
+  li {
+    list-style: none;
+    text-align: center;
+
+    a {
+      font-size: 1.5rem;
+      background: lighten($primary-color, 20%);
+      color: $secondary-color;
+      padding: 1rem;
+      border-radius: $border-radius;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: $accent-color;
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+// Footer
+footer {
+  @include flex-center;
+  background: $primary-color;
+  color: $secondary-color;
+  padding: 1rem;
+  border-radius: $border-radius;
+  margin-top: 2rem;
 
   p {
-    font-size: 1rem;
-    color: #666;
-    margin-top: 1rem;
+    margin: 0;
   }
 }
 
-// Különböző vonattípusokhoz egyedi színek és stílusok
-.traxx {
-  background-color: #004080;
-  color: white;
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.taurus {
-  background-color: #c00000;
-  color: white;
+.content {
+  text-align: center;
 }
 
-.thomas {
-  background-color: #007bff;
-  color: white;
-}
-
-.gustav {
-  background-color: #4b0082;
-  color: white;
-}
-
-// Responsív dizájn
-@media (max-width: 768px) {
-  header h1 {
-    font-size: 2rem;
-  }
-
-  header p {
-    font-size: 1rem;
-  }
-
-  .train-section {
-    margin: 1rem;
-    padding: 0.5rem;
-  }
-}
