@@ -1,0 +1,12 @@
+{
+  "name": "sas-vonatok",
+  "version": "1.0.0",
+  "description": "Vonatok bemutató weboldal",
+  "scripts": {
+    "sass": "sass styles/scss/main.scss:styles/main.css --watch",
+    "build": "sass styles/scss/main.scss:styles/main.css --style compressed"
+  },
+  "dependencies": {
+    "sass": "^1.58.0"
+  }
+}
